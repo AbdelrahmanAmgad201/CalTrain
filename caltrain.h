@@ -1,7 +1,13 @@
 #include <pthread.h>
 
 struct station {
-	// FILL ME IN
+    int numberOfEmptySeats;
+    int numberOfWaitingPassengers;
+    int numberOfPassengersWalkingOnTrain;
+    
+    pthread_mutex_t lock;
+    pthread_cond_t trainArrived;
+    pthread_cond_t passengersSeated;
 };
 
 void station_init(struct station *station);
